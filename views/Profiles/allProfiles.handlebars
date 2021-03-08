@@ -1,0 +1,55 @@
+<section>
+    <div class=" container my-5">
+        <table class="table table-bordered">
+            <tr>
+                <thead class="thead-dark">
+                    <th>Photo</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Designation</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>Alt_address</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>Details</th>
+                </thead>
+            </tr>
+              {{#each profiles}}
+            <tr>
+                <tbody>
+                    {{#if photo}}
+                    <th><img src="{{removeFirst6char photo.0.path}}"/></th>
+                    {{else}}
+                     <th><img src="../../images/fake.jpg"/></th>
+                     {{/if}}
+                    <td>{{firstname}}</td>
+                    <td>{{lastname}}</td>
+                    <td>{{designation}}</td>
+                    <td>{{phone}}</td>
+                    <td>{{gender}}</td>
+                    <td>{{address}}</td>
+                    <td>{{alt_address}}</td>
+                    <td>{{country}}</td>
+                    <td>{{state}}</td>
+                    <td><a class="badge badge-success " href="/profile/userDetails/{{_id}}">View </a>  
+                    {{!-- <a href="/profile/editUser"</i></a> --}}
+                     <a href="/profile/editUser/{{_id}}" class="badge badge-dark"> <span > <i class="far fa-edit "></i></span></a>   
+                    {{!-- <form action="/profile/deleteUser/{{userId._id}}?_method=DELETE" method="post" class="allProDele">
+                             <input type="hidden" name="_method" value="DELETE" />
+                           <button class="btn btn-warning" ><span> <i class="far fa-trash-alt"></i></span></button>
+                  </form>                --}}
+                          
+                    <form action="/profile/deleteUser/{{_id}}?_method=DELETE" method="post" class="allProDele">
+                            <input type="hidden" name="_method" value="DELETE" />
+                           <button class="btn btn-warning "><span> <i class="far fa-trash-alt"></i></span></button>
+                    </form>
+                    </td>
+                </tbody>
+            </tr>
+              {{else}}
+            {{/each}}
+        </table>
+    </div>
+</section>

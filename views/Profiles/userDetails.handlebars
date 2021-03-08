@@ -1,0 +1,37 @@
+<section>
+    <div class="card col-md-7    mx-auto my-5">
+        <div class="card-body">
+            <h1>{{time}}</h1>
+            <div class="UserDetails">
+              <h5>Firstname <span class="UserInfo1">:{{userId.firstname}}</span></h5>
+              <h5>Lastname  <span class="UserInfo2">:{{userId.lastname}}</span></h5>
+              <h5>Phone <span class="UserInfo4">:{{userId.phone}}</h5>
+              <h5>Gender <span class="UserInfo5">:{{userId.gender}}</h5>
+              <h5>Address <span class="UserInfo6">:{{userId.address}}</h5>
+              <h5>Alt-address <span class="UserInfo7">:{{userId.alt_address}}</h5>
+              <h5>Country <span class="UserInfo8">:{{userId.country}}</h5>
+              <h5>State <span class="UserInfo9">:{{userId.state}}</h5>
+              <h5>City <span class="UserInfo10">:{{userId.city}}</h5>
+             <h5>Pincode <span class="UserInfo11">:{{userId.pincode}}</h5>
+             <h5>Landmark <span class="UserInfo12">:{{userId.landmark}}</h5>
+            </div>
+            <div id="userImg" >
+                <img class="" src="{{removeFirst6char userId.photo.0.path}}" alt="">
+                 <h5> <span class="UserInfo3">{{userId.designation}}</h5>
+            </div>
+            <div>
+                <div class="userButtons">
+                <div class="userEditPro">
+                    <a href="/profile/editUser/{{userId._id}}" class="badge badge-primary">Edit</a> 
+                  </div>                 
+                 <form action="/profile/deleteUser/{{userId._id}}?_method=DELETE" method="post" class="userDeletePro">
+                             <input type="hidden" name="_method" value="DELETE" />
+                           <button class="btn btn-danger ">Delete</button>
+                          </form>
+            </div>
+            </div>
+            <div> 
+            </div>
+        </div>
+    </div>
+</section>
